@@ -23,7 +23,7 @@ $(document).ready(function() {
 	$('#fullpage').fullpage({
 		// anchors: ['', '', ''],
 		anchors: ['firstPage', 'secondPage', '3rdPage'],
-		sectionsColor: ['#fff', '#fff', '#fff'],
+		sectionsColor: ['#fff', '#fff', '#000'],
 		// sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
 		navigation: true,
 		navigationPosition: 'right',
