@@ -1,22 +1,124 @@
+/* FONT */
+@font-face {
+	font-family: HelveticaNeue;
+	src: url(HelveticaNeue.ttf);
+}
 
+@font-face {
+	font-family: HelvericaN;
+	src: url(Helvetica.ttf);
+}
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+@font-face {
+	font-family: Neue;
+	src: url(NeueHaasUnicaW1G-Regular.ttf);
+}
 
+@font-face {
+	font-family: NeueThin;
+	src: url(NeueHaasUnicaW1G-Thin.ttf);
+}
 
+/* STYLE */
+body {
+	/*background-color: black;*/
+	/*color: white;*/
+	font-family: 'Neue', sans-serif;
+	/*background-color: #f0efff;*/
+}
 
+h1 {
+	position: absolute;
+	font-size: 80px;
+	left: 5%;
+	top: 32%;
+	color: black !important;
+}
 
+#h1_1 {
+	position: absolute;
+	font-size: 80px;
+	left: 5%;
+	top: 32%;
+	color: black !important;
+	text-align: left;
+}
 
+#h1_2 {
+	position: absolute;
+	font-size: 80px;
+	left: 5%;
+	top: 32%;
+	text-align: left;
+	color: white !important;
+}
 
+.poem {
+	font-family: 'Neue', sans-serif;
+	/*color: rgba(100,100,100,1);*/
+	color: rgba(0,0,0,1);
+	position: absolute;
+	font-size: 30px;
+	text-align: center;
+	bottom: 60px;
 
+	right: 12%;
+	width: 520px;
+}
 
+/*.typed-cursor{
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}*/
 
-
-
-
-
-
-
-
-
+.typed-cursor{
+    opacity: 1;
+    font-weight: 100;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    -ms-animation: blink 0.7s infinite;
+    -o-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-ms-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-o-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
