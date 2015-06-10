@@ -1,6 +1,3 @@
-// var width = parseInt(d3.select('#viz2').style('width'), 10),
-// 	height = parseInt(d3.select('#viz2').style('height'), 10);
-
 var width = parseInt($(window).width(), 10),
 	height = parseInt($(window).height(), 10);
 
@@ -37,7 +34,6 @@ function makeViz(error, newyork, taipei) {
 
 // // Timer
 // var myVar = setInterval(function () {myTimer()}, 3000);
-
 function Breathing() {
 
     newyorkStory.each(function(e) {
@@ -67,10 +63,15 @@ function Move() {
     		.attr('r', function(d) { return getR(Math.random()); });
     });
 
+  	d3.select('#heading').style('visibility', 'visible');
+
+    d3.select('#heading').transition().duration(4000)
+    	.style('opacity', 1);
+
+
  //    setTimeout(function () {
 	//     setInterval(function() { Breathing() }, 2000);
 	// }, 20000);
-
 }
 
 // Scale
@@ -86,3 +87,4 @@ var rScale = d3.scale.linear()
 function getX(d) { return Math.floor( xScale(d) ); }
 function getY(d) { return Math.floor( yScale(d) ); }
 function getR(d) { return Math.floor( rScale(d) ); }
+
