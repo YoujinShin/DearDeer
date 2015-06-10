@@ -8,8 +8,7 @@
 var request = require('request'); // library to make requests to remote urls
 var moment = require("moment"); // date manipulation library
 
-
 exports.index = function(req, res) {
 	console.log('main page requested');
-	res.render('index.html');
+	res.render('index2.html');
 }

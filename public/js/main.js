@@ -4,11 +4,10 @@ var poem = "MY POEM<br><br>My poem delights me.<br>My poem is mine.<br><br>It is
 
 
 $(function(){
-
     $("#typed").typed({
     	strings: [poem],
         // strings: ["Dear Deer <br> Dear Deer"],
-        typeSpeed: 40,
+        typeSpeed: 80,
         backDelay: 500,
         loop: false,
         contentType: 'html', // or text // defaults to false for infinite loop
@@ -31,7 +30,16 @@ $(document).ready(function() {
 		// navigationTooltips: ['First page', 'Second page', 'Third and last page'],
 		responsive: 900
 	});
+
+	var height = $(window).height();  
+	// var height = screen.width;
+	var t_h = (height - 665)/2;
+	if(t_h < 0) t_h = 0;
+
+	$('.poem').css('bottom', t_h+"px");
 });
+
+
 
 
 // $(".reset").click(function(){
