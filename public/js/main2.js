@@ -19,19 +19,6 @@ var height = $(window).height();
 
 $(document).ready(function() {
 
-	var t_h1 = ( height - 200 )/2;
-	$('#logoImg').css('bottom', 80 + "px");
-
-	var t_h2 = ( height - 667 )/2;
-	t_h2 = 60;
-	$('.poem').css('bottom', t_h2 + "px");
-
-	var t_h3 = ( height - 30 )/2;
-	// $('#rightArrow').css('bottom', t_h3 + "px");
-	// $('#leftArrow').css('bottom', t_h3 + "px");
-	$('#rightArrow').css('bottom', t_h2+20 + "px");
-	$('#leftArrow').css('bottom', t_h2 +20+ "px");
-
 	// Right
 	$('#rightArrow').click(function() {
 

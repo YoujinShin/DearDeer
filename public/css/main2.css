@@ -21,8 +21,18 @@
 
 /* STYLE */
 body {
-	font-family: 'Neue', sans-serif;
+	font-family: 'NeueThin', sans-serif;
 	background-color: black;
+}
+
+.indicator_list {
+	position: absolute;
+	z-index: 20;
+	left: 5%;
+	top: 50px;
+	font-family: 'NeueThin', sans-serif;
+	padding: 20px;
+	font-size: 18px;
 }
 
 #q1 {
@@ -58,6 +68,7 @@ body {
 	position: absolute;
 	left: 10%;
 	opacity: 0.6;
+	bottom: 80px;
 }
 
 h1 {
@@ -77,6 +88,7 @@ h1 {
 	height: 30px;
 	border-radius: 30px;
 	background-color: red;
+	bottom: 80px;
 }
 
 #rightArrow:hover {
@@ -92,6 +104,8 @@ h1 {
 	height: 30px;
 	border-radius: 30px;
 	background-color: red;
+	bottom: 80px;
+	visibility: hidden;
 }
 
 #leftArrow:hover {
@@ -121,10 +135,11 @@ h1 {
 	left: 0px;
 	width: 100%;
 	top: 45%;
-	font-size: 40px;
+	font-size: 22px;
 	text-align: center;
 	color: rgba(255,255,255,1);
 	opacity: 0;
+	letter-spacing: 2px;
 	visibility: hidden;
 	text-transform: uppercase;
 }
@@ -141,6 +156,25 @@ h1 {
 	stroke-width: 0;
 }
 
+
+.newyorkText {
+	font-family: 'NeueThin', sans-serif;
+	fill: #40e4c2;
+	stroke-width: 0;
+	font-size: 12px;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.taipeiText {
+	font-family: 'NeueThin', sans-serif;
+	fill: #e44062;
+	stroke-width: 0;
+	font-size: 12px;
+	visibility: hidden;
+	opacity: 0;
+}
+
 .poem {
 	font-family: 'NeueThin', sans-serif;
 	color: rgba(120,120,120,1)!important;
@@ -152,6 +186,8 @@ h1 {
 	width: 300px;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	bottom: 60px;
+	letter-spacing: 1px;
 }
 
 #mine {
@@ -174,6 +210,8 @@ h1 {
     -o-animation: blink 0.7s infinite;
     animation: blink 0.7s infinite;
 }
+
+
 @-keyframes blink{
     0% { opacity:1; }
     50% { opacity:0; }
