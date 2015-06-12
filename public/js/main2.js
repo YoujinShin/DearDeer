@@ -11,8 +11,8 @@ $(function(){
     setTimeout(function () {
     	typingPoem(); 
 
-    	d3.select('#logoImg').transition().duration(6000)
-    	.style('opacity', 0.08);
+    	d3.select('#logoImg').transition().duration(10000)
+    	.style('opacity', 0.0);
     }, 3000);
 
 });
