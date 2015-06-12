@@ -5,6 +5,19 @@ var poem = "<span id='q2'>MY POEM</span><br><br><span id='q2'>My poem</span> del
 // <span id='q1'>by Rich Accetta-Evans</span>
 
 $(function(){
+    d3.select('#logoImg').transition().duration(3000)
+    	.style('opacity', 1);
+
+    setTimeout(function () {
+    	typingPoem(); 
+
+    	d3.select('#logoImg').transition().duration(6000)
+    	.style('opacity', 0.08);
+    }, 3000);
+
+});
+
+function typingPoem () {
     $("#typed").typed({
     	strings: [poem],
     	typeSpeed: 60,
@@ -13,7 +26,7 @@ $(function(){
     	contentType: 'html',
     	loopCount: false
     });
-});
+};
 
 var height = $(window).height();  
 
@@ -57,5 +70,3 @@ function hideViz() {
 	$('#logoImg').css('visibility', 'visible');
 	$('.poem').css('visibility', 'visible');
 }
-
-
