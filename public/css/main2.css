@@ -25,6 +25,38 @@ body {
 	background-color: black;
 }
 
+#bttn_one {
+	position: absolute;
+	top: 5%;
+	right: 200px;
+	width: 50px;
+	padding: 10px;
+	font-size: 12px;
+	color: white;
+	background-color: rgba(255,255,255,0.18);
+	opacity: 0;
+}
+
+#bttn_all {
+	position: absolute;
+	top: 5%;
+	right: 100px;
+	width: 50px;
+	padding: 10px;
+	font-size: 12px;
+	color: white;
+	background-color: rgba(255,255,255,0.18);
+	opacity: 0;
+}
+
+/*#bttn_one:hover {
+	opacity: 0.6;
+}
+
+#bttn_all:hover {
+	opacity: 0.6;
+}*/
+
 .indicator_list {
 	position: absolute;
 	z-index: 20;
@@ -35,6 +67,7 @@ body {
 	font-size: 18px;
 }
 
+/*for poem*/
 #q1 {
 	color: white;
 }
@@ -51,6 +84,32 @@ body {
 	color: white;
 }
 #q6 {
+	color: white;
+}
+#q2_1 {
+	color: white;
+}
+#q2_2 {
+	color: white;
+}
+
+/*for viz question*/
+#question1 {
+	color: white;
+}
+#question2 {
+	color: white;
+}
+#question3 {
+	color: white;
+}
+#question4 {
+	color: white;
+}
+#question5 {
+	color: white;
+}
+#question6 {
 	color: white;
 }
 
@@ -165,32 +224,38 @@ h1 {
 
 .newyorkText {
 	font-family: 'NeueThin', sans-serif;
+	font-size: 16px;
 	fill: #40e4c2;
+	/*fill: #fff;*/
 	stroke-width: 0;
 	visibility: hidden;
 	opacity: 0;
+	letter-spacing: 1px;
 }
 
 .taipeiText {
 	font-family: 'NeueThin', sans-serif;
+	font-size: 16px;
 	fill: #e44062;
+	/*fill: #fff;*/
 	stroke-width: 0;
 	visibility: hidden;
 	opacity: 0;
+	letter-spacing: 1px;
 }
 
 .poem {
 	font-family: 'NeueThin', sans-serif;
 	color: rgba(120,120,120,1)!important;
 	position: absolute;
-	font-size: 26px;
+	font-size: 20px;
 	text-align: center;
 
 	width: 100%;
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	bottom: 60px;
+	/*bottom: 60px;*/
 	letter-spacing: 1px;
 }
 

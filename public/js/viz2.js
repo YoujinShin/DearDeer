@@ -26,6 +26,9 @@ var answers = [ 'name', 'favorite', 'breakfast', 'prepare', 'body', 'happy'];
 
 function makeViz(error, newyork, taipei) {
 
+	newyorkLength = newyork.length;
+	taipeiLength = taipei.length;
+
 	newyorkStory = g.selectAll('.dot')
 		.data(newyork)
 		.enter().append('circle')
@@ -46,7 +49,7 @@ function makeViz(error, newyork, taipei) {
 		.data(newyork)
 		.enter().append('text')
 		.attr('class', 'newyorkText')
-		.attr("font-size", function(d) { return fontSize(Math.random()); })
+		// .attr("font-size", function(d) { return fontSize(Math.random()); })
 		.attr('x', function(d) { return getX(Math.random()); })
 		.attr('y', function(d) { return getY(Math.random()); })
 		.text(function(d) { return d.name; });
@@ -55,10 +58,7 @@ function makeViz(error, newyork, taipei) {
 		.data(taipei)
 		.enter().append('text')
 		.attr('class', 'taipeiText')
-		.attr("font-size", function(d) { 
-			// console.log(fontSize(Math.random()));
-			return fontSize(Math.random()); 
-		})
+		// .attr("font-size", function(d) { return fontSize(Math.random()); })
 		.attr('x', function(d) { return getX(Math.random()); })
 		.attr('y', function(d) { return getY(Math.random()); })
 		.text(function(d) { return d.name; });
@@ -66,6 +66,8 @@ function makeViz(error, newyork, taipei) {
 
 // var myVar = setInterval(function () {myTimer()}, 3000);
 function Move() {
+
+	selectOne(Math.random());
 
     newyorkStory.each(function(e) {
     	d3.select(this).transition().duration(18000)
@@ -85,148 +87,172 @@ function Move() {
     	.style('opacity', 1);
 
     setTimeout(function () { hideIntro(); }, 8000);
+    setTimeout(function () { hideStory(); }, 18000);
 
-    // FIRST QUESTION
-    setTimeout(function () { showQ(0); }, 16000);
+    randomPoem();
+    setTimeout(function() { showButton(); }, 52000);
+}
+
+function randomPoem() {
+
+
     setTimeout(function () { 
-    	hideStory();
-    	showA(0); }, 18000);
-    setTimeout(function () { hideQ(0); }, 18000);
+    	// showOneTP();
+    	showOneNY(0); 
+    }, 22000);
+    setTimeout(function () { 
+    	// showOneATP(0);
+    	showOneANY(0); 
+    }, 25500);
 
-    // SECOND QUESTION
-    setTimeout(function () { showQ(1); }, 28000);
-    setTimeout(function () { hideA(); }, 30000);
-    setTimeout(function () { hideQ(1); }, 31000);
-    setTimeout(function () { showA(1); }, 31000);
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(1);
+    	// showOneNY(); 
+    },   27000);
+    setTimeout(function () { 
+    	showOneATP(1);
+    	// showOneANY(1); 
+    }, 30500);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	// showOneTP();
+    	showOneNY(2); 
+    },   31000);
+    setTimeout(function () { 
+    	// showOneATP(2);
+    	showOneANY(2); 
+    }, 34500);
+
+     setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(3);
+    	// showOneNY(); 
+    },   35000);
+    setTimeout(function () { 
+    	showOneATP(3);
+    	// showOneANY(3); 
+    }, 38500);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	// showOneTP();
+    	showOneNY(4); 
+    },   39000);
+    setTimeout(function () { 
+    	// showOneATP(4);
+    	showOneANY(4); 
+    }, 42500);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(5);
+    	// showOneNY(); 
+    },   43000);
+    setTimeout(function () { 
+    	showOneATP(5);
+    	// showOneANY(5); 
+    }, 46500);
+    
+
+    setTimeout(function() {
+    	d3.select('#q1').text(a1)
+    		.style('color', '#40e4c2');
+    	d3.select('#q2').text(a2);
+    	d3.select('#q2_1').text(a2);
+    	d3.select('#q2_2').text(a2);
+    	d3.select('#q3').text(a3);
+    	d3.select('#q4').text(a4);
+    	d3.select('#q5').text(a5);
+    	d3.select('#q6').text(a6);
+
+    	hideText();
+    	hideStory2();
+
+    	d3.select('.poem').transition().duration(8000).style('opacity', 1);
+    }, 47000);
 }
 
-// Functions
-function hideIntro() {
-	d3.select('#heading').transition().duration(2000)
-		.style('opacity', 0);
+function randomPoem2() {
+
+	var minus = 18000;
+
+
+    setTimeout(function () { 
+    	// showOneTP();
+    	showOneNY(0); 
+    }, 22000 - minus);
+    setTimeout(function () { 
+    	// showOneATP(0);
+    	showOneANY(0); 
+    }, 25500 - minus);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(1);
+    	// showOneNY(); 
+    },   27000 - minus);
+    setTimeout(function () { 
+    	showOneATP(1);
+    	// showOneANY(1); 
+    }, 30500 - minus);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	// showOneTP();
+    	showOneNY(2); 
+    },   31000 - minus);
+    setTimeout(function () { 
+    	// showOneATP(2);
+    	showOneANY(2); 
+    }, 34500 - minus);
+
+     setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(3);
+    	// showOneNY(); 
+    },   35000 - minus);
+    setTimeout(function () { 
+    	showOneATP(3);
+    	// showOneANY(3); 
+    }, 38500 - minus);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	// showOneTP();
+    	showOneNY(4); 
+    },   39000 - minus);
+    setTimeout(function () { 
+    	// showOneATP(4);
+    	showOneANY(4); 
+    }, 42500 - minus);
+
+    setTimeout(function () { 
+    	selectOne(Math.random());
+    	showOneTP(5);
+    	// showOneNY(); 
+    },   43000 - minus);
+    setTimeout(function () { 
+    	showOneATP(5);
+    	// showOneANY(5); 
+    }, 46500 - minus);
+    
+
+    setTimeout(function() {
+    	d3.select('#q1').text(a1)
+    		.style('color', '#40e4c2');
+    	d3.select('#q2').text(a2);
+    	d3.select('#q2_1').text(a2);
+    	d3.select('#q2_2').text(a2);
+    	d3.select('#q3').text(a3);
+    	d3.select('#q4').text(a4);
+    	d3.select('#q5').text(a5);
+    	d3.select('#q6').text(a6);
+
+    	hideText();
+    	hideStory2();
+
+    	d3.select('.poem').transition().duration(8000).style('opacity', 1);
+    }, 47000 - minus);
 }
-
-function showQ(index) {
-	var question = questions[index];
-
-	d3.select('#heading').text(question);
-	d3.select('#heading').transition().duration(2000).style('opacity', 1);
-}
-
-function hideStory() {
-	// console.log(d3.select(newyorkStory[0][0]).attr('cx'));
-	newyorkStory.each(function(e, i) {
-		// d3.select(this).transition().duration(4000).style('opacity', 0);
-		d3.select(this).transition().duration(4000).attr('r', 0);
-	});
-
-	taipeiStory.each(function(e, i) {
-		// d3.select(this).transition().duration(4000).style('opacity', 0);
-		d3.select(this).transition().duration(4000).attr('r', 0);
-	});
-}
-
-function hideA() {
-	newyorkText.each(function(e, i) {
-		d3.select(this).transition().duration(2000).style('opacity', 0);
-	});
-
-	taipeiText.each(function(e, i) {
-		d3.select(this).transition().duration(2000).style('opacity', 0);
-	});
-}
-
-function showA(index) {
-
-	newyorkText.each(function(e, i) {
-
-		var cx = d3.select(newyorkStory[0][i]).attr('cx');
-		var cy = d3.select(newyorkStory[0][i]).attr('cy');
-
-		d3.select(this).attr('x', cx);
-		d3.select(this).attr('y', cy);
-		d3.select(this).text(function(e) { return getAnswer(e, index); });
-		d3.select(this).style('visibility', 'visible');
-		d3.select(this).transition().duration(10000).style('opacity', 0.5);
-	});
-
-	taipeiText.each(function(e, i) {
-
-		var cx = d3.select(taipeiStory[0][i]).attr('cx');
-		var cy = d3.select(taipeiStory[0][i]).attr('cy');
-
-		d3.select(this).attr('x', cx);
-		d3.select(this).attr('y', cy);
-		d3.select(this).text(function(e) { return getAnswer(e, index); });
-		d3.select(this).style('visibility', 'visible');
-		d3.select(this).transition().duration(10000).style('opacity', 0.5);
-	});
-}
-
-function hideQ() {
-	d3.select('#heading').transition().duration(2000).style('opacity', 0);
-}
-
-function getAnswer(e, index) {
-	if(index == 0) { return e.name; }
-	else if(index == 1) { return e.favorite; }
-	else if(index == 2) { return e.breakfast; }
-	else if(index == 3) { return e.prepare; }
-	else if(index == 4) { return e.body; }
-	else if(index == 5) { return e.happy; }
-}
-
-// var answers = [ 'name', 'favorite', 'breakfast', 'prepare', 'body', 'happy'];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Scale
-var xScale = d3.scale.linear()
-	.domain([0, 1]).range([ 20, width - 20]);
-
-var yScale = d3.scale.linear()
-	.domain([0, 1]).range([ 20, height - 20]);
-
-var yScale2 = d3.scale.linear()
-	.domain([0, 1]).range([ -20, -1000 ]);
-
-var yScale3 = d3.scale.linear()
-	.domain([0, 1]).range([ height + 20, height + 1000 ]);
-
-var rScale = d3.scale.linear()
-	.domain([0, 1]).range([ 2, 8 ]);
-
-var fontScale = d3.scale.linear()
-	.domain([0, 1]).range([ 4, 18 ]);
-
-function getX(d) { return Math.floor( xScale(d) ); }
-function getY(d) { return Math.floor( yScale(d) ); }
-function getY2(d) { return Math.floor( yScale2(d) ); }
-function getY3(d) { return Math.floor( yScale3(d) ); }
-function getR(d) { return Math.floor( rScale(d) ); }
-
-function fontSize(d) { 
-	var num = Math.floor( fontScale(d) );
-	// console.log(num.toString() + "px");
-	return num + "px"; 
-}
-
