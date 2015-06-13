@@ -93,31 +93,58 @@ function showButton() {
 		console.log('botton all clicked');
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
 		hideText();
+		// clearTimeout(randomPoem2());
 
 		//
 		newyorkStory.each(function(e) {
 	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function(d) { 
+	    		.attr('r', function() { 
 	    			var currentR = d3.select(this).attr('r');
 	    			if( currentR == 0 ) { return getR(Math.random());  } 
 	    			else { return currentR; }
 	    		})
 	    		.attr('cx', function(d) { return getX(Math.random()); })
-	    		.attr('cy', function(d) { return getY(Math.random()); });
+    			.attr('cy', function(d) { return getY(Math.random()); });
+
+	    	// changePoem(e);
+	    	d3.select(this)
+	    		.on('mouseover', function() {
+	    			console.log(d3.select(this));
+	    			changePoem(e);
+	    			d3.select('.poem').transition().duration(2000).style('opacity', 1);
+	    		})
+	    		.on('mouseout', function() {
+	    			d3.select('.poem').transition().duration(2000).style('opacity', 0);
+	    		});
 	    });
 
 	    taipeiStory.each(function(e) {
 	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function(d) { 
+	    		.attr('r', function() { 
 	    			var currentR = d3.select(this).attr('r');
 	    			if( currentR == 0 ) { return getR(Math.random());  } 
 	    			else { return currentR; } 
 	    		})
 	    		.attr('cx', function(d) { return getX(Math.random()); })
-	    		.attr('cy', function(d) { return getY(Math.random()); });
+    			.attr('cy', function(d) { return getY(Math.random()); });
 	    });
 	});
 
-	hideText();
+	// hideText();
+}
+
+// clearTimeout(randomPoem2());
+
+function changePoem(d) {
+	console.log(d);
+
+	d3.select('#q1').text(d.name);
+	d3.select('#q2').text(d.favorite);
+		d3.select('#q2_1').text(d.favorite);
+		d3.select('#q2_2').text(d.favorite);
+	d3.select('#q3').text(d.breakfast);
+	d3.select('#q4').text(d.prepare);
+	d3.select('#q5').text(d.body);
+	d3.select('#q6').text(d.happy);
 }
 
