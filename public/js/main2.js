@@ -4,6 +4,8 @@ var poem = "<span id='q2'>MY POEM</span><br><br><span id='q2_1'>My poem</span> d
 // <span id='q1'>by Rich Accetta-Evans</span>
 
 var height = $(window).height();
+bttn_all_clicked = false;
+var myVar;
 
 $(function(){
 
@@ -39,6 +41,17 @@ $(document).ready(function() {
 		console.log('right clicked');
 		showViz();
 	});
+
+	// if(bttn_all_clicked == true) {
+	// 	myVar = setInterval(function() {
+	// 		myTimer()
+	// 	}, 6000);
+	// } else {
+	// 	myVar = setInterval(function() {
+	// 		myTimer()
+	// 	}, 6000);
+	// 	clearTimeout(myVar);
+	// }
 });
 
 function showViz() {
@@ -73,6 +86,14 @@ function showButton() {
 	})
 	.on("click", function(){
 		console.log('botton one clicked');
+
+		// myVar = setInterval(function() {
+		// 	myTimer()
+		// }, 6000);
+		clearInterval(myVar);
+
+		bttn_all_clicked = false;
+		console.log(bttn_all_clicked);
 		hideStory();
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
 		randomPoem2();
@@ -91,6 +112,13 @@ function showButton() {
 	})
 	.on("click", function(){
 		console.log('botton all clicked');
+
+		myVar = setInterval(function() {
+			myTimer()
+		}, 6000);
+
+		bttn_all_clicked = true;
+		console.log(bttn_all_clicked);
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
 		hideText();
 		// clearTimeout(randomPoem2());
@@ -105,17 +133,6 @@ function showButton() {
 	    		})
 	    		.attr('cx', function(d) { return getX(Math.random()); })
     			.attr('cy', function(d) { return getY(Math.random()); });
-
-	    	// changePoem(e);
-	    	d3.select(this)
-	    		.on('mouseover', function() {
-	    			console.log(d3.select(this));
-	    			changePoem(e);
-	    			d3.select('.poem').transition().duration(2000).style('opacity', 1);
-	    		})
-	    		.on('mouseout', function() {
-	    			d3.select('.poem').transition().duration(2000).style('opacity', 0);
-	    		});
 	    });
 
 	    taipeiStory.each(function(e) {
@@ -128,15 +145,31 @@ function showButton() {
 	    		.attr('cx', function(d) { return getX(Math.random()); })
     			.attr('cy', function(d) { return getY(Math.random()); });
 	    });
+
+	    // setTimeout(function () { 
+    	// 	myVar();
+    	// }, 18000);
 	});
 
-	// hideText();
+	
 }
 
-// clearTimeout(randomPoem2());
+// var myVar = setInterval(function() {
+// 	myTimer()
+// }, 3000);
+
+function myTimer() {
+	selectOne(Math.random());
+	showPoemNY();
+	setTimeout(function () { 
+    	d3.select('.poem').transition().duration(1000).style('opacity', 0);
+    }, 2000);
+
+}
+
 
 function changePoem(d) {
-	console.log(d);
+	// console.log(d);
 
 	d3.select('#q1').text(d.name);
 	d3.select('#q2').text(d.favorite);

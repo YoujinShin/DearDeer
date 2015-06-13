@@ -55,6 +55,20 @@ function showOneNY(index) {
 	});
 }
 
+function showPoemNY(index) {
+	newyorkStory.each(function(e, i) {
+		if(i == selectedNY) { 
+			changePoem(e);
+			d3.select(this).style('stroke', '#fff');
+			d3.select(this).style('stroke-width', 2);
+			d3.select('.poem').transition().duration(2000).style('opacity', 1);
+		} else {
+			d3.select(this).style('stroke-width', 0);
+		}
+	});
+}
+
+
 function showOneTP(index) {
 	taipeiStory.each(function(e, i) {
 		if(i == selectedTP) { 

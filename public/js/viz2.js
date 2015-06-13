@@ -22,6 +22,8 @@ var questions = [
 	'Q6. What’s one thing you did last time you were happy?'
 ];
 
+
+
 var answers = [ 'name', 'favorite', 'breakfast', 'prepare', 'body', 'happy'];
 
 function makeViz(error, newyork, taipei) {
@@ -49,7 +51,6 @@ function makeViz(error, newyork, taipei) {
 		.data(newyork)
 		.enter().append('text')
 		.attr('class', 'newyorkText')
-		// .attr("font-size", function(d) { return fontSize(Math.random()); })
 		.attr('x', function(d) { return getX(Math.random()); })
 		.attr('y', function(d) { return getY(Math.random()); })
 		.text(function(d) { return d.name; });
@@ -58,7 +59,6 @@ function makeViz(error, newyork, taipei) {
 		.data(taipei)
 		.enter().append('text')
 		.attr('class', 'taipeiText')
-		// .attr("font-size", function(d) { return fontSize(Math.random()); })
 		.attr('x', function(d) { return getX(Math.random()); })
 		.attr('y', function(d) { return getY(Math.random()); })
 		.text(function(d) { return d.name; });
