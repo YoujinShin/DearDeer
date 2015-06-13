@@ -73,6 +73,7 @@ function showButton() {
 	})
 	.on("click", function(){
 		console.log('botton one clicked');
+		hideStory();
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
 		randomPoem2();
 	});
@@ -91,21 +92,32 @@ function showButton() {
 	.on("click", function(){
 		console.log('botton all clicked');
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
+		hideText();
 
 		//
 		newyorkStory.each(function(e) {
 	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function(d) { return getR(Math.random()); })
+	    		.attr('r', function(d) { 
+	    			var currentR = d3.select(this).attr('r');
+	    			if( currentR == 0 ) { return getR(Math.random());  } 
+	    			else { return currentR; }
+	    		})
 	    		.attr('cx', function(d) { return getX(Math.random()); })
 	    		.attr('cy', function(d) { return getY(Math.random()); });
 	    });
 
 	    taipeiStory.each(function(e) {
 	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function(d) { return getR(Math.random()); })
+	    		.attr('r', function(d) { 
+	    			var currentR = d3.select(this).attr('r');
+	    			if( currentR == 0 ) { return getR(Math.random());  } 
+	    			else { return currentR; } 
+	    		})
 	    		.attr('cx', function(d) { return getX(Math.random()); })
 	    		.attr('cy', function(d) { return getY(Math.random()); });
 	    });
 	});
+
+	hideText();
 }
 
