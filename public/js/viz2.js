@@ -1,5 +1,8 @@
-var width = parseInt($(window).width(), 10),
-	height = parseInt($(window).height(), 10);
+// var width = parseInt($(window).width(), 10),
+// 	height = parseInt($(window).height(), 10);
+
+var width = parseInt(screen.width, 10),
+	height = parseInt(screen.height, 10);
 
 var svg = d3.select('#viz2').append('svg')
 	.attr('width', width)
