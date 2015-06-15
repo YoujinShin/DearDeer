@@ -1,8 +1,8 @@
-// var width = parseInt($(window).width(), 10),
-// 	height = parseInt($(window).height(), 10);
+var width = parseInt($(window).width(), 10),
+	height = parseInt($(window).height(), 10);
 
-var width = parseInt(screen.width, 10),
-	height = parseInt(screen.height, 10);
+// var width = parseInt(screen.width, 10),
+// 	height = parseInt(screen.height, 10);
 
 var svg = d3.select('#viz2').append('svg')
 	.attr('width', width)
@@ -24,7 +24,6 @@ var questions = [
 	'Q5. What’s your favorite part of your body?',
 	'Q6. What’s one thing you did last time you were happy?'
 ];
-
 
 
 var answers = [ 'name', 'favorite', 'breakfast', 'prepare', 'body', 'happy'];
