@@ -247,6 +247,8 @@ function randomPoem2() {
     	d3.select('#q2').text(a2);
     	d3.select('#q2_1').text(a2);
     	d3.select('#q2_2').text(a2);
+        d3.select('#q2_3').text(a2);
+        // d3.select('#q2_3').text(d.favorite);
     	d3.select('#q3').text(a3);
     	d3.select('#q4').text(a4);
     	d3.select('#q5').text(a5);
@@ -256,5 +258,6 @@ function randomPoem2() {
     	hideStory2();
 
     	d3.select('.poem').transition().duration(8000).style('opacity', 1);
+        poem_completed = true;
     }, 47000 - minus);
 }

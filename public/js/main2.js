@@ -1,10 +1,12 @@
 // var poem = "MY POEM<br><br>by Rich Accetta-Evans<br><br>My poem delights me.<br>My poem is mine.<br><br>It is like fresh bread<br>When I bake it myself.<br><br>It is like my son<br>The day he was born.<br><br>I laughed as I wrote it,<br>And clapped my hands.<br><br>I will stop a stranger<br>To show him my poem.<br><br>Because it delights me.<br>Because it is mine.<br><br>September 11, 1993.";
 // var poem = "MY POEM<br><br>My poem delights me.<br>My poem is mine.<br><br>It is like fresh bread<br>When I bake it myself.<br><br>It is like my son<br>The day he was born.<br><br>I laughed as I wrote it,<br>And clapped my hands.<br><br>I will stop a stranger<br>To show him my poem.<br><br>Because it delights me.<br>Because it is mine.";
-var poem = "<span id='q2'>MY POEM</span><br><br><span id='q2_1'>My poem</span> delights me.<br><span id='q2_2'>My poem</span> is mine.<br><br>It is like <span id='q3'>fresh bread</span><br>When <span id='q4'>I bake it</span> myself.<br><br>It is like <span id='q5'>my son</span><br>The day <span id='q5'>he</span> was born.<br><br>I <span id='q6'>laughed</span> as I wrote it,<br>And clapped my hands.<br><br>I will stop a stranger<br>To show him my poem.<br><br>Because it delights me.<br>Because it is mine.";
+var poem = "<span id='q2'>MY POEM</span><br><br><span id='q2_1'>My poem</span> delights me.<br><span id='q2_2'>My poem</span> is mine.<br><br>It is like <span id='q3'>fresh bread</span><br>When <span id='q4'>I bake it</span> myself.<br><br>It is like <span id='q5'>my son</span><br>The day <span id='q5'>he</span> was born.<br><br>I <span id='q6'>laughed</span> as I wrote it,<br>And clapped my hands.<br><br>I will stop a stranger<br>To show him <span id='q2_3'>my poem</span>.<br><br>Because it delights me.<br>Because it is mine.";
 // <span id='q1'>by Rich Accetta-Evans</span>
 
 var height = $(window).height();
 bttn_all_clicked = false;
+poem_completed = false;
+
 var myVar;
 
 $(function(){
@@ -87,13 +89,11 @@ function showButton() {
 	.on("click", function(){
 		console.log('botton one clicked');
 
-		// myVar = setInterval(function() {
-		// 	myTimer()
-		// }, 6000);
 		clearInterval(myVar);
 
 		bttn_all_clicked = false;
-		console.log(bttn_all_clicked);
+		poem_completed = false;
+
 		hideStory();
 		d3.select('.poem').transition().duration(4000).style('opacity', 0);
 		randomPoem2();
@@ -113,42 +113,42 @@ function showButton() {
 	.on("click", function(){
 		console.log('botton all clicked');
 
-		myVar = setInterval(function() {
-			myTimer()
-		}, 6000);
+		// if(poem_completed) {
 
-		bttn_all_clicked = true;
-		console.log(bttn_all_clicked);
-		d3.select('.poem').transition().duration(4000).style('opacity', 0);
-		hideText();
-		// clearTimeout(randomPoem2());
+			if(bttn_all_clicked == false) {
+				myVar = setInterval(function() {
+					myTimer()
+				}, 6000);
+			}
 
-		//
-		newyorkStory.each(function(e) {
-	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function() { 
-	    			var currentR = d3.select(this).attr('r');
-	    			if( currentR == 0 ) { return getR(Math.random());  } 
-	    			else { return currentR; }
-	    		})
-	    		.attr('cx', function(d) { return getX(Math.random()); })
-    			.attr('cy', function(d) { return getY(Math.random()); });
-	    });
+			bttn_all_clicked = true;
 
-	    taipeiStory.each(function(e) {
-	    	d3.select(this).transition().duration(18000)
-	    		.attr('r', function() { 
-	    			var currentR = d3.select(this).attr('r');
-	    			if( currentR == 0 ) { return getR(Math.random());  } 
-	    			else { return currentR; } 
-	    		})
-	    		.attr('cx', function(d) { return getX(Math.random()); })
-    			.attr('cy', function(d) { return getY(Math.random()); });
-	    });
+			d3.select('.poem').transition().duration(4000).style('opacity', 0);
+			hideText();
+			//
+			newyorkStory.each(function(e) {
+		    	d3.select(this).transition().duration(18000)
+		    		.attr('r', function() { 
+		    			var currentR = d3.select(this).attr('r');
+		    			if( currentR == 0 ) { return getR(Math.random());  } 
+		    			else { return currentR; }
+		    		})
+		    		.attr('cx', function(d) { return getX(Math.random()); })
+	    			.attr('cy', function(d) { return getY(Math.random()); });
+		    });
 
-	    // setTimeout(function () { 
-    	// 	myVar();
-    	// }, 18000);
+		    taipeiStory.each(function(e) {
+		    	d3.select(this).transition().duration(18000)
+		    		.attr('r', function() { 
+		    			var currentR = d3.select(this).attr('r');
+		    			if( currentR == 0 ) { return getR(Math.random());  } 
+		    			else { return currentR; } 
+		    		})
+		    		.attr('cx', function(d) { return getX(Math.random()); })
+	    			.attr('cy', function(d) { return getY(Math.random()); });
+		    });
+
+		// }
 	});
 
 	
@@ -175,6 +175,7 @@ function changePoem(d) {
 	d3.select('#q2').text(d.favorite);
 		d3.select('#q2_1').text(d.favorite);
 		d3.select('#q2_2').text(d.favorite);
+		d3.select('#q2_3').text(d.favorite);
 	d3.select('#q3').text(d.breakfast);
 	d3.select('#q4').text(d.prepare);
 	d3.select('#q5').text(d.body);
