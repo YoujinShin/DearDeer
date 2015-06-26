@@ -5,6 +5,7 @@ var poem = "<span id='q2'>MY POEM</span><br><br><span id='q2_1'>My poem</span> d
 
 var height = $(window).height();
 bttn_all_clicked = false;
+bttn_one_clicked = false;
 poem_completed = false;
 
 var myVar;
@@ -75,7 +76,7 @@ function hideViz() {
 }
 
 function showButton() {
-	// 
+	// ONE POEM BUTTON
 	d3.select('#bttn_one').transition().duration(2000)
 		.style('opacity', 0.9);
 
@@ -91,15 +92,22 @@ function showButton() {
 
 		clearInterval(myVar);
 
+		if(bttn_one_clicked == false) {
+			hideStory();
+			d3.select('.poem').transition().duration(4000).style('opacity', 0);
+			randomPoem2();
+		}
+
 		bttn_all_clicked = false;
+		bttn_one_clicked = true;
 		poem_completed = false;
 
-		hideStory();
-		d3.select('.poem').transition().duration(4000).style('opacity', 0);
-		randomPoem2();
+		// hideStory();
+		// d3.select('.poem').transition().duration(4000).style('opacity', 0);
+		// randomPoem2();
 	});
 
-	// 
+	// ALL POEM BUTTON
 	d3.select('#bttn_all').transition().duration(2000)
 		.style('opacity', 0.9);
 
@@ -113,18 +121,22 @@ function showButton() {
 	.on("click", function(){
 		console.log('botton all clicked');
 
-		// if(poem_completed) {
+			clearTimeouts();
 
 			if(bttn_all_clicked == false) {
 				myVar = setInterval(function() {
-					myTimer()
+					myTimer();
 				}, 6000);
+
+				d3.select('.poem').transition().duration(4000).style('opacity', 0);
+				hideText();
 			}
 
 			bttn_all_clicked = true;
+			bttn_one_clicked = false;
 
-			d3.select('.poem').transition().duration(4000).style('opacity', 0);
-			hideText();
+			// d3.select('.poem').transition().duration(4000).style('opacity', 0);
+			// hideText();
 			//
 			newyorkStory.each(function(e) {
 		    	d3.select(this).transition().duration(18000)
@@ -163,7 +175,7 @@ function myTimer() {
 	showPoemNY();
 	setTimeout(function () { 
     	d3.select('.poem').transition().duration(1000).style('opacity', 0);
-    }, 2000);
+    }, 5000);
 
 }
 
@@ -180,5 +192,13 @@ function changePoem(d) {
 	d3.select('#q4').text(d.prepare);
 	d3.select('#q5').text(d.body);
 	d3.select('#q6').text(d.happy);
+}
+
+function clearTimeouts() {
+
+	for(var i = 0; i < 13; i++) {
+		// console.log(i);
+		clearTimeout( timeout[i] );
+	}
 }
 

@@ -97,7 +97,6 @@ function Move() {
 
 function randomPoem() {
 
-
     setTimeout(function () { 
     	// showOneTP();
     	showOneNY(0); 
@@ -176,72 +175,69 @@ function randomPoem() {
     }, 47000);
 }
 
+window.timeout = [];
+
 function randomPoem2() {
 
 	var minus = 18000;
 
 
-    setTimeout(function () { 
-    	// showOneTP();
+    timeout[0] = setTimeout(function () { 
     	showOneNY(0); 
     }, 22000 - minus);
-    setTimeout(function () { 
-    	// showOneATP(0);
+
+    timeout[1] = setTimeout(function () { 
     	showOneANY(0); 
     }, 25500 - minus);
 
-    setTimeout(function () { 
+    timeout[2] = setTimeout(function () { 
     	selectOne(Math.random());
     	showOneTP(1);
-    	// showOneNY(); 
     },   27000 - minus);
-    setTimeout(function () { 
+
+    timeout[3] = setTimeout(function () { 
     	showOneATP(1);
-    	// showOneANY(1); 
     }, 30500 - minus);
 
-    setTimeout(function () { 
+    timeout[4] = setTimeout(function () { 
     	selectOne(Math.random());
-    	// showOneTP();
     	showOneNY(2); 
     },   31000 - minus);
-    setTimeout(function () { 
-    	// showOneATP(2);
+
+    timeout[5] = setTimeout(function () { 
     	showOneANY(2); 
     }, 34500 - minus);
 
-     setTimeout(function () { 
+    timeout[6] = setTimeout(function () { 
     	selectOne(Math.random());
     	showOneTP(3);
-    	// showOneNY(); 
     },   35000 - minus);
-    setTimeout(function () { 
+
+    timeout[7] = setTimeout(function () { 
     	showOneATP(3);
-    	// showOneANY(3); 
     }, 38500 - minus);
 
-    setTimeout(function () { 
+    timeout[8] = setTimeout(function () { 
     	selectOne(Math.random());
-    	// showOneTP();
     	showOneNY(4); 
     },   39000 - minus);
-    setTimeout(function () { 
-    	// showOneATP(4);
+
+    timeout[9] = setTimeout(function () { 
     	showOneANY(4); 
     }, 42500 - minus);
 
-    setTimeout(function () { 
+    timeout[10] = setTimeout(function () { 
     	selectOne(Math.random());
     	showOneTP(5);
-    	// showOneNY(); 
     },   43000 - minus);
-    setTimeout(function () { 
+
+    timeout[11] = setTimeout(function () { 
     	showOneATP(5);
     	// showOneANY(5); 
     }, 46500 - minus);
     
 
-    setTimeout(function() {
+    timeout[12] = setTimeout(function() {
     	d3.select('#q1').text(a1)
     		.style('color', '#40e4c2');
     	d3.select('#q2').text(a2);
