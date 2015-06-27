@@ -97,14 +97,14 @@ function showOneANY(index) {
 	newyorkText.each(function(e, i) {
 
 		if(i == selectedNY) {
-			var cx = d3.select(newyorkStory[0][i]).attr('cx');
+			var cx = d3.select(newyorkStory[0][i]).attr('cx') + 50;
 			var cy = d3.select(newyorkStory[0][i]).attr('cy');
 
-			d3.select(this).attr('x', cx + 30);
+			d3.select(this).attr('x', function() { return cx + 150; }); // cx + 30
 			d3.select(this).attr('y', cy);
 			d3.select(this).text(function(e) { return getAnswer(e, index); });
 			d3.select(this).style('visibility', 'visible');
-			d3.select(this).transition().duration(200).style('opacity', 0.8);
+			d3.select(this).transition().duration(200).style('opacity', 1);
 		}
 	});
 }
@@ -117,11 +117,11 @@ function showOneATP(index) {
 			var cx = d3.select(taipeiStory[0][i]).attr('cx');
 			var cy = d3.select(taipeiStory[0][i]).attr('cy');
 
-			d3.select(this).attr('x', cx + 30);
+			d3.select(this).attr('x', function() { return cx + 150; }); // cx + 30
 			d3.select(this).attr('y', cy);
 			d3.select(this).text(function(e) { return getAnswer(e, index); });
 			d3.select(this).style('visibility', 'visible');
-			d3.select(this).transition().duration(0).style('opacity', 0.8);
+			d3.select(this).transition().duration(0).style('opacity', 1);
 		}
 	});
 }

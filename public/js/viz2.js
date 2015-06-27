@@ -1,9 +1,6 @@
 var width = parseInt($(window).width(), 10),
 	height = parseInt($(window).height(), 10);
 
-// var width = parseInt(screen.width, 10),
-// 	height = parseInt(screen.height, 10);
-
 var svg = d3.select('#viz2').append('svg')
 	.attr('width', width)
 	.attr('height', height);
@@ -95,6 +92,7 @@ function Move() {
     setTimeout(function() { showButton(); }, 52000);
 }
 
+
 function randomPoem() {
 
     setTimeout(function () { 
@@ -175,12 +173,12 @@ function randomPoem() {
     }, 47000);
 }
 
+
 window.timeout = [];
 
 function randomPoem2() {
 
 	var minus = 18000;
-
 
     timeout[0] = setTimeout(function () { 
     	showOneNY(0); 
@@ -257,3 +255,5 @@ function randomPoem2() {
         poem_completed = true;
     }, 47000 - minus);
 }
+
+

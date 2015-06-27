@@ -93,18 +93,20 @@ function showButton() {
 		clearInterval(myVar);
 
 		if(bttn_one_clicked == false) {
-			hideStory();
-			d3.select('.poem').transition().duration(4000).style('opacity', 0);
-			randomPoem2();
+			// hideStory();
+			// d3.select('.poem').transition().duration(4000).style('opacity', 0);
+			// randomPoem2();
 		}
 
 		bttn_all_clicked = false;
 		bttn_one_clicked = true;
 		poem_completed = false;
 
-		// hideStory();
-		// d3.select('.poem').transition().duration(4000).style('opacity', 0);
-		// randomPoem2();
+		clearTimeouts();
+		hideStory();
+		hideText();
+		d3.select('.poem').transition().duration(4000).style('opacity', 0);
+		randomPoem2();
 	});
 
 	// ALL POEM BUTTON
@@ -162,26 +164,20 @@ function showButton() {
 
 		// }
 	});
-
-	
 }
 
-// var myVar = setInterval(function() {
-// 	myTimer()
-// }, 3000);
 
 function myTimer() {
+
 	selectOne(Math.random());
 	showPoemNY();
 	setTimeout(function () { 
     	d3.select('.poem').transition().duration(1000).style('opacity', 0);
     }, 5000);
-
 }
 
 
 function changePoem(d) {
-	// console.log(d);
 
 	d3.select('#q1').text(d.name);
 	d3.select('#q2').text(d.favorite);
@@ -197,7 +193,6 @@ function changePoem(d) {
 function clearTimeouts() {
 
 	for(var i = 0; i < 13; i++) {
-		// console.log(i);
 		clearTimeout( timeout[i] );
 	}
 }

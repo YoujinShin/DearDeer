@@ -234,6 +234,7 @@ h1 {
 	visibility: hidden;
 	opacity: 0;
 	letter-spacing: 1px;
+	padding-left: 20px;
 }
 
 .taipeiText {
@@ -245,6 +246,7 @@ h1 {
 	visibility: hidden;
 	opacity: 0;
 	letter-spacing: 1px;
+	padding-left: 20px;
 }
 
 .poem {
